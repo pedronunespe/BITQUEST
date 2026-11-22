@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BitQuest · Arquitetura Computacional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="logo">BQ</span><div><b>BITQUEST</b><small>Reino da Arquitetura Computacional</small></div></div>
+  <div class="top-right">
+    <span class="chip" id="stars-total">★ 0/21</span>
+    <button class="ghost" id="btn-sound" title="Som">SOM</button>
+    <button class="ghost" id="btn-reset" title="Apagar progresso">RESET</button>
+  </div>
+</header>
+
+<main>
+  <section id="screen-map" class="screen active">
+    <div class="intro">
+      <h1>MAPA DO REINO</h1>
+      <p>Cada fortaleza é um capítulo da aula. Derrote o inimigo respondendo às perguntas: acertos causam dano, erros custam vida.</p>
+    </div>
+    <div class="stage-grid" id="stage-grid"></div>
+  </section>
+
+  <section id="screen-battle" class="screen">
+    <div class="banner win" id="banner">Escolha um comando.</div>
+    <div class="arena" id="arena">
+      <div class="wall"></div><div class="floor"></div>
+      <svg class="torch l" viewBox="0 0 8 16" shape-rendering="crispEdges"><path class="flame" d="M3 0h2v1h1v2h1v3H1V3h1V1h1z" fill="#f59e0b"/><path class="flame2" d="M3 2h2v1h1v2H2V3h1z" fill="#fde68a"/><path d="M2 6h4v2H2zM3 8h2v8H3z" fill="#4a2c14"/></svg>
+      <svg class="torch r" viewBox="0 0 8 16" shape-rendering="crispEdges"><path class="flame" d="M3 0h2v1h1v2h1v3H1V3h1V1h1z" fill="#f59e0b"/><path class="flame2" d="M3 2h2v1h1v2H2V3h1z" fill="#fde68a"/><path d="M2 6h4v2H2zM3 8h2v8H3z" fill="#4a2c14"/></svg>
+      <div class="stage-label" id="stage-label"></div>
+      <div class="fighter hero" id="fighter-hero"><div class="shadow"></div><div class="sprite" id="hero"></div><div class="float" id="float-hero"></div></div>
+      <div class="fighter enemy" id="fighter-enemy"><div class="shadow"></div><div class="sprite" id="enemy"></div><div class="float" id="float-enemy"></div></div>
+    </div>
+    <div class="dock">
+      <div class="hud">
+        <div class="unit win">
+          <div class="unit-head"><b id="hero-name">Cavaleiro Bit</b><span id="combo" class="combo"></span></div>
+          <div class="bar"><i class="hp" id="hero-hp"></i><span id="hero-hp-t"></span></div>
+          <div class="bar"><i class="mp" id="hero-mp"></i><span id="hero-mp-t"></span></div>
+        </div>
+        <div class="unit win">
+          <div class="unit-head"><b id="enemy-name">Inimigo</b><span class="shield" id="shield"></span></div>
+          <div class="bar"><i class="hp foe" id="enemy-hp"></i><span id="enemy-hp-t"></span></div>
+        </div>
+      </div>
+      <div class="panel win" id="panel"></div>
+    </div>
+  </section>
+</main>
+
+<div class="overlay" id="overlay"><div class="card win parch" id="card"></div></div>
+
+<script src="audio.js"></script>
+<script src="questions.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
